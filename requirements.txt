@@ -1,0 +1,6 @@
+torch==2.3.0
+numpy==1.26.2
+matplotlib==3.7.1
+scikit-learn==1.2.2
+idx2numpy
+tensorflow
