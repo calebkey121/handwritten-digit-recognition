@@ -1,0 +1,13 @@
+services:
+  digit-api:
+    build: .
+    image: digit-inference:local
+    ports:
+      - "8080:8080"
+    environment:
+      MODELS_DIR: /app/models
+      SCRATCH_MODEL_PATH: /app/models/my_model.pkl
+      # PREPROCESS_CONFIG: /app/models/preprocess.json
+      PORT: "8080"
+    volumes:
+      - ./models:/app/models:ro

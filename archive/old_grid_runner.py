@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 import pickle
 import os
 import torch
-from pytorch_model_defs import my_first_pytorch
+from archive.pytorch_model_defs import my_first_pytorch
 
 def list_files(directory, ext):
     # List to store filenames
@@ -36,7 +36,7 @@ EPOCHS = 3
 
 mean = None
 stddev = None
-preload = True
+preload = False
 my_model_filename = "models/my_model.pkl"
 my_model = None
 keras_model_filenames = list_files(directory="models/", ext=".keras")
