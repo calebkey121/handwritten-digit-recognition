@@ -1,15 +1,3 @@
-name: Deploy
-
-on:
-  push:
-    branches: [ "main" ]
-
-jobs:
-  deploy:
-    runs-on: self-hosted
-    steps:
-      - name: Deploy on athens
-        run: bash /home/caleb/hdr/deploy.sh
 name: Build & Deploy
 
 on:
