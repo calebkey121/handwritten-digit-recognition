@@ -169,25 +169,6 @@ class InferenceEngine:
         return PreprocessConfig()
 
     def _load_models(self) -> None:
-        # Scratch pickle
-        if self.scratch_pickle and self.scratch_pickle.exists():
-            try:
-                import pickle
-
-                logger.info("Loading scratch model from %s", self.scratch_pickle)
-                with open(self.scratch_pickle, "rb") as f:
-                    scratch_model = pickle.load(f)
-
-                def scratch_predict(x_1d: np.ndarray) -> Any:
-                    # Your model expects a 784-length vector.
-                    scratch_model.forward_pass(x_1d)
-                    return scratch_model.output_layer
-
-                self._models.append(("scratch:my_model", "scratch", scratch_predict))
-            except Exception as e:
-                logger.exception("Failed to load scratch model: %s", e)
-
-        # Scratch weights-only JSON (portable)
         scratch_state_path = self.models_dir / "scratch_model_state.json"
         if scratch_state_path.exists():
             try:
