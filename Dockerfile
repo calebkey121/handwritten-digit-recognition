@@ -12,7 +12,6 @@ RUN pip install --no-cache-dir -r /app/requirements.txt
 
 COPY inference_service /app/inference_service
 COPY neural_network /app/neural_network
-COPY models /app/models
 
 ENV PORT=8080
 EXPOSE 8080
